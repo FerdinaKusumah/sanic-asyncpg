@@ -26,9 +26,13 @@ async def register_db(app, loop):
     )
     app.config['pool'] = await create_pool(
         dsn=conn,
-        min_size=10, #in bytes,
-        max_size=10, #in bytes,
+        # in bytes
+        min_size=10,
+        # in bytes
+        max_size=10,
+        # maximum query
         max_queries=50000,
+        # maximum idle times
         max_inactive_connection_lifetime=300,
         loop=loop)
 
